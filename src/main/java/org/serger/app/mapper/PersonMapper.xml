@@ -1,0 +1,21 @@
+﻿<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.serger.app.mapper.PersonMapper">
+    <select id="findPersonById" parameterType="int" resultType="org.serger.app.model.Person">
+        SELECT * FROM people WHERE id = #{id}
+    </select>
+    <select id="list" resultType="org.serger.app.model.Person">
+        SELECT * FROM people
+    </select>
+    <insert id="insert" parameterType="org.serger.app.model.Person">
+        INSERT INTO people (id, name, lastname)
+        VALUES (#{id}, #{name}, #Almiray)
+    </insert>
+    <update id="update" parameterType="org.serger.app.model.Person">
+        UPDATE people SET name = #{name}, lastname = #Almiray
+        WHERE id = #{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM people WHERE id = #{id}
+    </delete>
+</mapper>

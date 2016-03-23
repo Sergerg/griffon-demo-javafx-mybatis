@@ -1,0 +1,51 @@
+package org.serger.app.services;
+
+import griffon.core.artifact.GriffonService;
+import griffon.metadata.ArtifactProviderFor;
+import org.codehaus.griffon.runtime.core.artifact.AbstractGriffonService;
+
+import griffon.plugins.datasource.DataSourceHandler;
+import griffon.plugins.datasource.DataSourceCallback;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.annotation.Nonnull;
+import javax.inject.Inject;
+
+@ArtifactProviderFor(GriffonService.class)
+public class SampleService extends AbstractGriffonService {
+    @Inject
+    private DataSourceHandler dataSourceHandler;
+
+    public String getPersonName(final long id) {
+        return dataSourceHandler.withDataSource(new DataSourceCallback<String>() {
+            public String handle(@Nonnull String dataSourceName, @Nonnull DataSource dataSource)
+                    throws SQLException {
+
+                Connection con = null;
+                PreparedStatement preparedStatement;
+                try {
+                    con = dataSource.getConnection();
+                    con.setAutoCommit(false);
+                    preparedStatement = con.prepareStatement("UPDATE COFFEES " +
+                            "SET PRICE = ? " +
+                            "WHERE COF_NAME = ?");
+                    preparedStatement.setFloat(1, id);
+                    preparedStatement.setString(2, "aaa");
+                    preparedStatement.executeUpdate();
+
+                    con.commit();
+                    preparedStatement.close();
+
+                } finally {
+                    if (con != null) con.close();
+                }
+
+                return "";
+            }
+        });
+    }
+}
