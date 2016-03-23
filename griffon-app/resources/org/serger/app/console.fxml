@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane prefHeight="60.0" prefWidth="200.0"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="org.serger.app.ConsoleController">
+    <children>
+        <Label fx:id="clickLabel"
+               text="0"
+               GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <!-- click + ActionTarget, method run click in controller -->
+        <Button fx:id="clickActionTarget"
+                GridPane.columnIndex="0" GridPane.rowIndex="1"
+                mnemonicParsing="false"
+                prefWidth="200.0"
+                text="Click" />
+        <Label fx:id="aaa"
+               text="%greeting.label"
+               GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Button fx:id="btnOpenFormActionTarget"
+                GridPane.columnIndex="0" GridPane.rowIndex="3"
+                mnemonicParsing="false"
+                prefWidth="200.0"
+                text="Open form" />
+    </children>
+</GridPane>

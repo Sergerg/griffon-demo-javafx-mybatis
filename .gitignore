@@ -1,0 +1,9 @@
+﻿
+2
+1
+gradlew*
+.idea
+.gradle
+testjfx.iml
+target
+build
