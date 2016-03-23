@@ -6,9 +6,16 @@ import org.codehaus.griffon.runtime.core.artifact.AbstractGriffonController;
 
 import griffon.transform.Threading;
 
+import org.serger.app.services.SampleService;
+
+import javax.inject.Inject;
+
 @ArtifactProviderFor(GriffonController.class)
 public class ConsoleController extends AbstractGriffonController {
     private ConsoleModel model;
+
+    @Inject
+    private SampleService sampleService;
 
     public void setModel(ConsoleModel model) {
         this.model = model;
@@ -22,5 +29,6 @@ public class ConsoleController extends AbstractGriffonController {
 
     public void btnOpenForm() {
         System.out.println("btnOpenForm");
+        sampleService.getPersonName(1);
     }
 }

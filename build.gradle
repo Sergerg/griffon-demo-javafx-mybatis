@@ -58,7 +58,7 @@ apply plugin: 'com.github.kt3k.coveralls'
 
 dependencies {
     griffon 'org.codehaus.griffon.plugins:griffon-datasource-plugin:1.2.0'
-//    griffon 'org.codehaus.griffon.plugins:griffon-mybatis-plugin:1.2.0'
+    griffon 'org.codehaus.griffon.plugins:griffon-mybatis-plugin:1.2.0'
 }
 
 javafx {
@@ -67,6 +67,7 @@ javafx {
 
 dependencies {
     compile "org.codehaus.griffon:griffon-guice:${griffon.version}"
+    compile 'com.h2database:h2:1.4.191'
 
     runtime('log4j:log4j:1.2.17') {
         exclude group: 'ant',         module: 'ant-nodeps'
