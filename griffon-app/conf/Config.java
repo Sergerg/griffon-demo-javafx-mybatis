@@ -21,6 +21,12 @@ public class Config extends AbstractMapResourceBundle {
                     .e("view", "org.serger.app.ConsoleView")
                     .e("controller", "org.serger.app.ConsoleController")
                 )
-            );
+            )
+//            .e("mappers", map()
+//                    .e("mapper", map()
+//                            .e("resource", "org.serger.app.mapper.PersonMapper.xml")
+//                    )
+//            )
+        ;
     }
 }

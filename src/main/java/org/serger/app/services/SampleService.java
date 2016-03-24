@@ -15,12 +15,13 @@ import javax.annotation.Nonnull;
 import javax.inject.Inject;
 
 @ArtifactProviderFor(GriffonService.class)
-public class SampleService extends AbstractGriffonService {
+public class SampleService extends AbstractGriffonService
+{
     @Inject
     private MybatisHandler mybatisHandler;
 
     public String getPersonName(final int id) {
-         return mybatisHandler.withSqlSession(new MybatisCallback<String>() {
+        return mybatisHandler.withSqlSession(new MybatisCallback<String>() {
              public String handle(@Nonnull String sessionFactoryName, @Nonnull SqlSession session) {
                  PersonMapper mapper = session.getMapper(PersonMapper.class);
                  Person person = mapper.findPersonById(id);
