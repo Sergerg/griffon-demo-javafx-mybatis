@@ -51,7 +51,7 @@ apply from: 'gradle/integration-test.gradle'
 apply from: 'gradle/functional-test.gradle'
 apply from: 'gradle/package.gradle'
 apply from: 'gradle/docs.gradle'
-apply plugin: 'com.github.johnrengelman.shadow'
+//apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'org.kordamp.gradle.stats'
 apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'com.github.kt3k.coveralls'
@@ -95,23 +95,23 @@ tasks.withType(GroovyCompile) {
     targetCompatibility = project.targetCompatibility
 }
 
-import com.github.jengelman.gradle.plugins.shadow.transformers.*
+//import com.github.jengelman.gradle.plugins.shadow.transformers.*
 import java.text.SimpleDateFormat
 
-shadowJar {
-    transform(ServiceFileTransformer)
-    transform(ServiceFileTransformer) {
-        path = 'META-INF/griffon'
-    }
-    transform(ServiceFileTransformer) {
-        path = 'META-INF/types'
-    }
-    transform(PropertiesFileTransformer) {
-        paths = [
-            'META-INF/editors/java.beans.PropertyEditor'
-        ]
-    }
-}
+//shadowJar {
+//    transform(ServiceFileTransformer)
+//    transform(ServiceFileTransformer) {
+//        path = 'META-INF/griffon'
+//    }
+//    transform(ServiceFileTransformer) {
+//        path = 'META-INF/types'
+//    }
+//    transform(PropertiesFileTransformer) {
+//        paths = [
+//            'META-INF/editors/java.beans.PropertyEditor'
+//        ]
+//    }
+//}
 
 startScripts {
     doLast {

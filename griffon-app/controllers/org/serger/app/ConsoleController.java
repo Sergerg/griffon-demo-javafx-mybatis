@@ -29,6 +29,7 @@ public class ConsoleController extends AbstractGriffonController {
 
     public void btnOpenForm() {
         System.out.println("btnOpenForm");
-        sampleService.getPersonName(1);
+        String name = sampleService.getPersonName(1);
+        System.out.println("Name = " + name);
     }
 }
